@@ -26,7 +26,7 @@ function HomeScreen() {
 
   const movieList = useSelector((state) => state.moviesList);
 
-  const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  const matches = useMediaQuery(theme.breakpoints.up("xs"));
 
   const { loading, movies, page, error, pages } = movieList;
 
@@ -44,7 +44,7 @@ function HomeScreen() {
           <Header />
           {matches ? (
             <div>
-              <img src={Img} style={{ height: "280px", width: "100%" }}></img>
+              <img src={Img} style={{ height: "300px", width: "100%" }}></img>
             </div>
           ) : (
             <div>

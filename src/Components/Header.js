@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import Container from "@mui/material/Container";
 
 const Search = styled("div")(({ theme }) => ({
@@ -18,21 +18,11 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  width: "100%",
+  width: "50px",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
     width: "auto",
   },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -40,7 +30,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    paddingLeft: `calc(1em + ${theme.spacing(1)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
@@ -56,23 +46,43 @@ export default function SearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: "#263F61" }}>
-        <Container sx={{ maxWidth: "1450px" }} maxWidth={false}>
-          <Toolbar>
-            <Typography
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block", fontSize:"36px", fontFamily: "Poppins" } }}
-            >
-             Insta Play
-            </Typography>
-            <Search>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-          </Toolbar>
-        </Container>
+        {/* <Container sx={{ maxWidth: "1450px" }} maxWidth={false}> */}
+        <Toolbar>
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid xs={12} md={8}>
+              <Typography
+                noWrap
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  display: {
+                    xs: "12",
+                    sm: "block",
+                    fontSize: "36px",
+                    fontFamily: "Poppins",
+                  },
+                }}
+              >
+                Insta Play
+              </Typography>
+            </Grid>
+            <Grid direction="row" xs={12} md={4}>
+              <Search>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
+              
+            </Grid>
+          </Grid>
+        </Toolbar>
+        {/* </Container> */}
       </AppBar>
     </Box>
   );

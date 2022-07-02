@@ -17,6 +17,7 @@ export default function Content({ page, pages }) {
       count={pages}
       renderItem={(item) => (
         <PaginationItem
+        
         sx ={{color:"white"}}
           component={Link}
           to={`/page/${item.page === 1 ? "" : `${item.page}`}`}
