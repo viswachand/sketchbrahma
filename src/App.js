@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import HomeScreen from "./Screens/HomeScreen";
+import MovieDetialScreen from "./Screens/MovieDetailScreen";
+import { Routes, Route, Link } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./Components/Theming";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        {/* <Container> */}
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/page/:page" exact element={<HomeScreen />} />
+          <Route path="/movieDetials/:id" element={<MovieDetialScreen />} />
+        </Routes>
+        {/* </Container> */}
+      </ThemeProvider>
+    </>
   );
 }
-
-export default App;
