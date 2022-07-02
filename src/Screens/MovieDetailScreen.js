@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { MovieDetails } from "../Actions/MoviesListActions";
 import { useParams } from "react-router-dom";
-import { height, styled } from "@mui/system";
+import {  styled } from "@mui/system";
 import { useTheme } from "@mui/material/styles";
 
 import { Container } from "@mui/system";

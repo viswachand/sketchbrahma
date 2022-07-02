@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { moviesList } from "../Actions/MoviesListActions";
 import Loader from "../Components/Loading";
@@ -44,11 +43,11 @@ function HomeScreen() {
           <Header />
           {matches ? (
             <div>
-              <img src={Img} style={{ height: "300px", width: "100%" }}></img>
+              <img src={Img} alt = "img" style={{ height: "300px", width: "100%" }}></img>
             </div>
           ) : (
             <div>
-              <img src={Img} style={{ height: "150px", width: "100%" }}></img>
+              <img src={Img} alt = "img" style={{ height: "150px", width: "100%" }}></img>
             </div>
           )}
 
